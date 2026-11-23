@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Build and runtime outputs
+build/
+devel/
+install/
+log/
+logs/
+*.log
+
+# Models and archives
+*.onnx
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.zip
+
+# Biometric data, feature databases and generated screenshots
+*.pkl
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.webp
+face_data/
+model/
+stranger_faces/
+recognition_snapshots/
+face_feature_log.txt
+
+# Vendored nested repository (not part of this package history)
+src/InsightFace/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

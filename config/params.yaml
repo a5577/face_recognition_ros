@@ -1,0 +1,38 @@
+# ---------------- 模型与数据库 ----------------
+database_file: "/home/xiangsi/catkin_ws/src/face_recognition_ros/model/chenzhen_face_database.pkl"
+use_yolo: true
+yolo_model: "yolo11n.pt"
+person_confidence: 0.35
+threshold: 0.4
+
+# ---------------- 字体 ----------------
+font_path: "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
+font_size: 22
+
+# ---------------- 特征显示 ----------------
+show_feature_dim: 6
+print_full_feature: false
+feature_log_file: "/home/xiangsi/catkin_ws/src/face_recognition_ros/model/face_feature_log.txt"
+print_interval: 1.0
+
+# ---------------- 方法一：质量过滤 ----------------
+enable_quality_check: true
+min_det_score: 0.60
+min_eye_ratio: 0.25
+min_mouth_nose_ratio: 0.15
+enable_106_check: false
+min_mouth_std: 1.5
+
+# ---------------- 方法二：多帧投票 ----------------
+enable_voting: true
+vote_window: 15
+vote_min_count: 8
+vote_min_score: 0.35
+track_max_dist: 120
+track_max_age: 30
+
+# ---------------- 话题 ----------------
+image_topic: "/camera/color/image_raw"
+result_topic: "/face_recognition/results"
+visualization_topic: "/face_recognition/visualization"
+publish_visualization: true

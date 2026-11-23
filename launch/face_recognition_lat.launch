@@ -1,0 +1,24 @@
+<launch>
+    <!-- 1. USB 摄像头节点 -->
+    <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen">
+        <param name="video_device" value="/dev/video0"/>
+        <param name="image_width" value="640"/>
+        <param name="image_height" value="480"/>
+        <param name="pixel_format" value="yuyv"/>
+        <param name="camera_frame_id" value="usb_cam"/>
+        <param name="io_method" value="mmap"/>
+        <param name="framerate" value="30"/>
+    </node>
+
+    <!-- 2. 人脸识别节点 -->
+    <node name="face_recognition_node"
+          pkg="face_recognition_ros"
+          type="face_recognition_node.py"
+          output="screen">
+        <rosparam file="$(find face_recognition_ros)/config/params.yaml"
+                  command="load"/>
+    </node>
+
+    <!-- 3. rviz 可视化窗口 -->
+    <node name="rviz" pkg="rviz" type="rviz" output="screen"/>
+</launch>

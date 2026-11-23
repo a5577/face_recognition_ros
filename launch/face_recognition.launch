@@ -1,0 +1,36 @@
+<launch>
+    <!-- 参数：可视化方式 rqt / rviz / none -->
+    <arg name="vis" default="rqt"/>
+
+    <!-- 1. Intel RealSense D435i 摄像头 -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="color_width" value="640"/>
+        <arg name="color_height" value="480"/>
+        <arg name="color_fps" value="30"/>
+        <arg name="align_depth" value="true"/>
+    </include>
+
+    <!-- 2. 人脸识别节点 -->
+    <node name="face_recognition_node"
+          pkg="face_recognition_ros"
+          type="face_recognition_node.py"
+          output="screen">
+        <rosparam file="$(find face_recognition_ros)/config/params.yaml"
+                  command="load"/>
+    </node>
+
+    <!-- 3a. rqt_image_view 可视化（默认） -->
+    <node if="$(eval arg('vis') == 'rqt')"
+          name="rqt_image_view"
+          pkg="rqt_image_view"
+          type="rqt_image_view"
+          args="/face_recognition/visualization"
+          output="screen"/>
+
+    <!-- 3b. rviz 可视化（可选，vis:=rviz） -->
+    <node if="$(eval arg('vis') == 'rviz')"
+          name="rviz"
+          pkg="rviz"
+          type="rviz"
+          output="screen"/>
+</launch>

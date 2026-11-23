@@ -1,0 +1,10 @@
+string name
+float32 score
+float32 raw_score
+int32 bbox_x1
+int32 bbox_y1
+int32 bbox_x2
+int32 bbox_y2
+bool confirmed
+int32 vote_count
+string quality

@@ -1,0 +1,19 @@
+[theme]
+base = "light"
+primaryColor = "#2E7D32"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F1F7F2"
+textColor = "#1B3A1E"
+font = "sans serif"
+
+[server]
+headless = true
+address = "0.0.0.0"
+port = 8501
+
+[client]
+# 精简顶部工具栏（隐藏 Deploy 按钮和三点菜单），减少遮挡
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false

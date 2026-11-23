@@ -1,0 +1,7 @@
+# 人脸识别网页应用依赖（Python 3.8，适配 ROS Noetic 系统环境）
+streamlit==1.36.0
+insightface>=1.0.1
+onnxruntime>=1.16.0
+opencv-python
+numpy>=1.23,<2
+pillow
